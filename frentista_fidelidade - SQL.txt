@@ -1,0 +1,29 @@
+select
+   d.id_entidade,
+   e.ds_entidade FRENTISTA,
+   a.dt_emissa DATAHORA,
+   a.hr_emissa,
+   a.nr_docfiscal,
+   l.id_entidade,
+   l.ds_entidade ENTIDADE,
+   f.nr_cartao CARTAO,
+   g.ds_sigla ITEM,
+   c.qt_abastecimento LTS
+from docfiscal a
+left join docfiscal_item b on (a.id_docfiscal = b.id_docfiscal)
+left join abastecimento c on (b.id_abastecimento = c.id_abastecimento)
+left join rfid d on (c.id_rfid_operador = d.id_rfid)
+left join entidade e on (d.id_entidade = e.id_entidade)
+left join cartao f on (a.id_cartao_fid = f.id_cartao)
+left join entidade l on (a.id_entidade = l.id_entidade)
+left join item g on (b.id_item = g.id_item)
+ where a.ch_situac = 'F'
+ and g.ch_combustivel = 'T'
+ and a.ch_tipo in ('CF','NFCE','SAT','CFE')
+ 
+{if param_empresa} and a.id_filial in (:Empresa) {endif}
+{if param_frentista} and d.id_entidade in (:Frentista) {endif} 
+{if param_entidade} and l.id_entidade in (:Cliente) {endif}
+{if param_emissao} and a.dt_emissa between :Emissao and :Ate {endif}
+
+order by 2,3,4

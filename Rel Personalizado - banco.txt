@@ -1,0 +1,6 @@
+Tabelas
+
+FORM -> nome, menu, relatório base (para os relatórios modificados)
+FORM_DET -> arquivo de ajuda, arquivo do relatório, filtros, etc
+FORM_LINK -> ligação do relatório com os menus de impressão dos processos
+FORM_USUARIO -> controle de acessos
