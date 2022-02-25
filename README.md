@@ -1,2 +1,3 @@
 - Olá, me chamo Frank Schmitz e estou apenas começando na área.
-- Possuo alguma experiência com SQL e PHP, aprendendo o básico de Ruby.
+- Possuo experiência com SQL, HTML e CSS.
+- Aprendendo PHP.
